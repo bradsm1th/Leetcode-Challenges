@@ -1,18 +1,13 @@
 def findMaxAverage(nums, k):
     start = 0
-    current_best = sum(nums[start:start+k]) / len(nums[start:start+k])
+    current_best = sum(nums[start:start+k])
     
     while len(nums[start:start+k]) == k:
-        # print(nums[start:start+k])
-        this_avg = sum(nums[start:start+k]) / len(nums[start:start+k])
-        # current_best = this_avg
-        if this_avg > current_best:
-            current_best = float(this_avg)
-        # best_average = this_avg
-        # print(f"avg of this subarray:\t {this_avg}")
+        this_sum = sum(nums[start:start+k])
+        current_best = max(this_sum, current_best)
         start += 1
         
-    return current_best
+    return current_best / k
 
 
 
